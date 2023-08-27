@@ -52,7 +52,9 @@ function updateUserProfile(req, res, next) {
       return res.status(OK_CODE).send(user);
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') {
+      if (err.code === 11000) {
+        next(new ExistedEmailError('Такой email уже существует'));
+      } else if (err.name === 'ValidationError') {
         next(new BadRequestError(`${Object.values(err.errors)
           .map((error) => error.message)
           .join(', ')}`));
