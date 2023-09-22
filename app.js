@@ -23,8 +23,8 @@ mongoose.connect(MONGOURL, {
 });
 
 const app = express();
-// app.use(cors({ origin: ['http://localhost:3001', 'http://avp.nomoreparties.co', 'https://avp.nomoreparties.co'], credentials: true }));
-app.use(cors({ origin: ['http://localhost:3001'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001', 'http://movieavp.nomoredomainsicu.ru', 'https://movieavp.nomoredomainsicu.ru'], credentials: true }));
+// app.use(cors({ origin: ['http://localhost:3001'], credentials: true }));
 
 app.use(bodyParser.json());
 
